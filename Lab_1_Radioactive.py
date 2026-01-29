@@ -1,21 +1,21 @@
 
-'''Program to calculate the expected number of nuclei expected from radioactive
-decay, and compare to analytic solution.
-The code will solve the following differential equation using the Euler method
-dN/dt = - N / tau
-This has known analytic solution
-N(t) = N(0) exp(-t/tau)
-The program will use the following variables.
-initial -- initial number of nuclei
-tinitial -- starting initial time step
-tfinal -- final stopping time step
-tau -- expected lifetime of a single nucleus
-t -- time variable that is incremented by deltat
-deltat -- time step used in the Euler integration
-Nold -- number of nuclei at time step t
-Nnew -- number of nuclei at time step t + deltat (integrated to next time step)
-Ntrue -- number of nuclei at time t as determined by the analytic solution to the
-above equation.'''
+'''
+James Ward
+1/18/26
+Program to model radioactive decay and compare a numerical solution to the
+analytic result. The decay process is simulated by numerically solving the
+first-order differential equation
+
+    dN/dt = −N / τ
+
+using the Euler integration method. The analytic solution to this equation is
+
+    N(t) = N₀ e^(−t/τ)
+
+The program evolves the number of nuclei forward in time using discrete time
+steps and compares the numerical result to the exact exponential decay curve.
+
+'''
 # import math and matlab plot libraries
 import numpy as np
 import math
@@ -97,4 +97,5 @@ plt.ylabel("Percent error (%)")
 plt.grid(True)
 plt.show()
 # Shows percent error after the plots are closed
+
 print('percent error =', err)
